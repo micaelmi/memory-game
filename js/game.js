@@ -72,7 +72,7 @@ const checkEndGame = () => {
                 localStorage.setItem('time', Number(spanTimer.textContent))
                 localStorage.setItem('moves', moves)
 
-                localStorage.setItem(localStorage.getItem('player'), [localStorage.getItem('time'), localStorage.getItem('moves')])
+                // localStorage.setItem(localStorage.getItem('player'), [localStorage.getItem('time'), localStorage.getItem('moves')])
 
                 swal.fire("Novo recorde!", "Parabéns por ocupar uma nova posição no ranking", "success")
             }, 1500)
