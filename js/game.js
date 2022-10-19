@@ -2,6 +2,7 @@ const grid = document.querySelector('.grid');
 const spanPlayer = document.querySelector('.player');
 const spanTimer = document.querySelector('.timer');
 const spanMoves = document.querySelector('.moves');
+const restart = document.querySelector('.restart');
 
 const characters = [
     'eevee',
@@ -26,7 +27,7 @@ const checkEndGame = () => {
         setTimeout(() => {
             swal.fire(
                 `Parabéns ${spanPlayer.textContent}!`,
-                ` Seu tempo foi de ${spanTimer.textContent} segundos`
+                ` Tempo: ${spanTimer.textContent} segundos. Total de jogadas: ${moves}.`
             )
         }, 1000)
     }
@@ -52,8 +53,6 @@ const checkCards = () => {
         }, 500)
 
     }
-
-    // spanMoves.textContent = moves
 }
 
 const revealCard = ({ target }) => {
@@ -66,11 +65,11 @@ const revealCard = ({ target }) => {
     } else if (secondCard === '') {
         target.parentNode.classList.add('reveal-card')
         secondCard = target.parentNode
-
+        moves++
+        spanMoves.textContent = moves
         checkCards()
     }
 }
-
 
 const createElement = (tag, className) => {
     const element = document.createElement(tag);
@@ -113,10 +112,17 @@ const startTimer = () => {
     }, 1000)
 }
 
+const restartGame = () => {
+    window.location.reload()
+}
+
+restart.addEventListener('click', restartGame)
+
 window.onload = () => {
 
     const playerName = localStorage.getItem('player')
     spanPlayer.textContent = playerName
+    spanMoves.textContent = moves
 
     startTimer()
     loadGame()

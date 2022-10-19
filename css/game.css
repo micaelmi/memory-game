@@ -6,7 +6,7 @@ body {
 
 header {
   background: url("../img/pokemon-bg.jpg");
-  padding: 3rem 7rem;
+  padding: 3rem 5rem;
   margin: 1rem;
   border: 3px double #ffcc01;
   border-radius: 4px;
@@ -14,8 +14,23 @@ header {
   justify-content: space-between;
   align-items: center;
 }
+header .left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+header .left a img {
+  width: 2rem;
+}
 header .player {
   font-size: 2.5rem;
+}
+header .data {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
 }
 header span {
   color: #ffcc01;
@@ -67,6 +82,24 @@ main .reveal-card {
 main .disabled-card {
   filter: saturate(0);
   opacity: 0.5;
+}
+
+.restart {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.5);
+  width: 3.5rem;
+  aspect-ratio: 1/1;
+  background-color: #ffcc01;
+  border: none;
+  border-radius: 50%;
+  padding: 0.7rem 0.6rem 0.5rem 0.6rem;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+.restart:hover {
+  background-color: #e4a70e;
 }
 
 footer {

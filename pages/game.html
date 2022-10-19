@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -11,20 +11,34 @@
     <link rel="stylesheet" href="../css/styles.css" />
     <link rel="stylesheet" href="../css/game.css" />
 
+    <script
+      defer
+      src="https://kit.fontawesome.com/876f80b0f5.js"
+      crossorigin="anonymous"
+    ></script>
     <script defer src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script defer src="../js/game.js"></script>
   </head>
+
   <body class="container">
     <header>
-      <span class="player"></span>
+      <div class="left">
+        <a href="../index.html">
+          <img src="../img/back.svg" alt="Voltar para o Login" />
+        </a>
+        <span class="player"></span>
+      </div>
       <div class="data">
         <span>Tempo: <span class="timer">00</span></span>
-        <!-- <span id="moves">Jogadas: <span class="moves"></span></span> -->
+        <span id="moves">Jogadas: <span class="moves"></span></span>
       </div>
     </header>
     <main>
       <div class="grid"></div>
     </main>
+    <button class="restart">
+      <img src="../img/return.svg" alt="Reiniciar Jogo" />
+    </button>
     <footer>
       <h4>Desenvolvido por Micael Miranda Inácio - 2022</h4>
     </footer>
