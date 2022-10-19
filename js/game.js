@@ -1,9 +1,20 @@
 const grid = document.querySelector('.grid');
+
 const spanPlayer = document.querySelector('.player');
 const spanTimer = document.querySelector('.timer');
 const spanMoves = document.querySelector('.moves');
+
 const restart = document.querySelector('.restart');
 
+const rankingButton = document.querySelector('.ranking');
+const rankingModal = document.querySelector('#show-ranking');
+const rankingClose = document.querySelector('#close-ranking');
+const topPlayer = document.querySelector('#top-player');
+const topTime = document.querySelector('#top-time');
+const topMoves = document.querySelector('#top-moves');
+const deleteRanking = document.querySelector('#clear-storage');
+
+let firstCard = '', secondCard = '', moves = 0
 const characters = [
     'eevee',
     'espeon',
@@ -16,12 +27,37 @@ const characters = [
     'vaporeon',
 ]
 
+const showRanking = () => {
 
-let firstCard = '', secondCard = '', moves = 0
+    if (localStorage.getItem('time') != 1000) {
+        topPlayer.textContent = localStorage.getItem('player')
+        topTime.textContent = localStorage.getItem('time')
+        topMoves.textContent = localStorage.getItem('moves')
+
+        rankingModal.showModal()
+    } else {
+        swal.fire(
+            'Ainda não há partidas salvas para consultar'
+        )
+    }
+}
+
+
+rankingButton.addEventListener('click', showRanking)
+rankingClose.addEventListener('click', function () {
+    rankingModal.close()
+})
+
+const clearRanking = () => {
+    localStorage.setItem('time', 1000)
+    localStorage.setItem('moves', 1000)
+    rankingModal.close()
+    swal.fire('Recorde apagado', 'Agora você pode conseguir um novo recorde', 'success')
+}
+deleteRanking.addEventListener('click', clearRanking)
 
 const checkEndGame = () => {
     const disabledCards = document.querySelectorAll('.disabled-card');
-    console.log(disabledCards.length);
     if (disabledCards.length === 18) {
         clearInterval(this.loop)
         setTimeout(() => {
@@ -29,7 +65,18 @@ const checkEndGame = () => {
                 `Parabéns ${spanPlayer.textContent}!`,
                 ` Tempo: ${spanTimer.textContent} segundos. Total de jogadas: ${moves}.`
             )
-        }, 1000)
+        }, 500)
+
+        if (Number(localStorage.getItem('time')) + Number(localStorage.getItem('moves')) > Number(spanTimer.textContent) + Number(spanMoves.textContent)) {
+            setTimeout(() => {
+                localStorage.setItem('time', Number(spanTimer.textContent))
+                localStorage.setItem('moves', moves)
+
+                localStorage.setItem(localStorage.getItem('player'), [localStorage.getItem('time'), localStorage.getItem('moves')])
+
+                swal.fire("Novo recorde!", "Parabéns por ocupar uma nova posição no ranking", "success")
+            }, 1500)
+        }
     }
 }
 

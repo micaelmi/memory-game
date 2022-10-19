@@ -13,6 +13,8 @@ const validateInput = (event) => {
 const handleSubmit = (event) => {
     event.preventDefault()
     localStorage.setItem('player', input.value)
+    localStorage.setItem('time', 1000)
+    localStorage.setItem('moves', 1000)
     window.location = 'pages/game.html'
 }
 

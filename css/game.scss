@@ -44,8 +44,19 @@ header {
     font-size: 1.6rem;
   }
 
-  #moves {
-    margin-left: 2rem;
+  .ranking {
+    width: 3.5rem;
+    aspect-ratio: 1/1;
+    background-color: $secondary-color;
+    border: none;
+    border-radius: 50%;
+    padding: 0.7rem 0.6rem 0.5rem 0.6rem;
+    cursor: pointer;
+    transition: 0.5s ease;
+
+    &:hover {
+      background-color: $secondary-color-hover;
+    }
   }
 }
 
@@ -101,11 +112,67 @@ main {
   }
 }
 
+dialog {
+  background-color: $primary-color;
+  color: white;
+  width: 80%;
+  max-width: 500px;
+  margin-top: 40vh;
+  margin-inline: auto;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  text-align: center;
+
+  box-shadow: 0px 0px 4px 4px $shadow-color;
+
+  p {
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+  }
+
+  .controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    width: 40%;
+    margin-inline: auto;
+
+    button {
+      margin-top: 0.5rem;
+      background-color: $secondary-color;
+      color: $primary-color;
+      padding: 0.5rem 0.25rem;
+      font-weight: 600;
+      font-size: 1rem;
+      border-radius: 0.5rem;
+      transition: 0.5s ease;
+      cursor: pointer;
+      &:hover {
+        background-color: $secondary-color-hover;
+      }
+    }
+
+    #close-ranking {
+      width: 70%;
+    }
+
+    #clear-storage {
+      width: 20%;
+      aspect-ratio: 1/1;
+
+      img {
+        width: 1rem;
+      }
+    }
+  }
+}
+
 .restart {
   position: fixed;
   bottom: 1rem;
   right: 1rem;
-  box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 4px 4px $shadow-color;
 
   width: 3.5rem;
   aspect-ratio: 1/1;
@@ -148,9 +215,6 @@ footer {
       justify-content: center;
       align-items: center;
       flex-direction: column;
-    }
-    #moves {
-      margin-left: 0;
     }
   }
 

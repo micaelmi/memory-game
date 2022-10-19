@@ -31,14 +31,33 @@
       <div class="data">
         <span>Tempo: <span class="timer">00</span></span>
         <span id="moves">Jogadas: <span class="moves"></span></span>
+        <button class="ranking">
+          <img src="../img/ranking.svg" alt="Ranking de Partidas" />
+        </button>
       </div>
     </header>
+
     <main>
       <div class="grid"></div>
+
+      <dialog id="show-ranking">
+        <h2>Melhor Partida</h2>
+        <p>Nome: <span id="top-player"></span></p>
+        <p>Tempo: <span id="top-time"></span></p>
+        <p>Jogadas: <span id="top-moves"></span></p>
+        <div class="controls">
+          <button id="close-ranking" title="Fechar">OK</button>
+          <button id="clear-storage" title="Limpar">
+            <img src="../img/clear.svg" alt="Limpar Ranking" />
+          </button>
+        </div>
+      </dialog>
     </main>
+
     <button class="restart">
       <img src="../img/return.svg" alt="Reiniciar Jogo" />
     </button>
+
     <footer>
       <h4>Desenvolvido por Micael Miranda Inácio - 2022</h4>
     </footer>
