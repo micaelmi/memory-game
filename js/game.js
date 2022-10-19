@@ -24,7 +24,10 @@ const checkEndGame = () => {
     if (disabledCards.length === 18) {
         clearInterval(this.loop)
         setTimeout(() => {
-            alert(`Parabéns ${spanPlayer.textContent}! Seu tempo foi de ${spanTimer.textContent} segundos`)
+            swal.fire(
+                `Parabéns ${spanPlayer.textContent}!`,
+                ` Seu tempo foi de ${spanTimer.textContent} segundos`
+            )
         }, 1000)
     }
 }
@@ -38,7 +41,6 @@ const checkCards = () => {
         secondCard.firstChild.classList.add('disabled-card')
         firstCard = ''
         secondCard = ''
-        moves++
         checkEndGame()
     } else {
 
@@ -47,12 +49,11 @@ const checkCards = () => {
             secondCard.classList.remove('reveal-card')
             firstCard = ''
             secondCard = ''
-            moves++
         }, 500)
 
     }
 
-    spanMoves.textContent = moves
+    // spanMoves.textContent = moves
 }
 
 const revealCard = ({ target }) => {
